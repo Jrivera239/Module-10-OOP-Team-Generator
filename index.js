@@ -2,11 +2,11 @@ const fs = require('fs');
 const Employee = require ('./Roles/Employee.js');
 const Manager = require ('./Roles/Manager.js');
 const Intern = require ('./Roles/Intern.js');
-const generateTeam = require('./sources/generatePage.js');
-const path = require ('path');
 const inquirer = require("inquirer");
-const outputPath = path.join(output_dir, 'index.html');
-const output_dir = path.resolve (__dirname, "output")
+const generateTeam = require('./sources/generatePage.js');
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "index.html");   
+const path = require ('path');
 
 classArray = [];
 
@@ -17,7 +17,7 @@ function runApp () {
          type:"list",
          message: "What type of member are you adding to the team?",
          name:"addMember",
-         choices:["Rogue", "Mage","Warrior","No more members needed."]
+         choices:["Manager", "Intern","Engineer","No more members needed."]
         }]).then(function (classInput) {
         switch (classInput.addMember) {
         case "Intern":
@@ -40,7 +40,7 @@ function runApp () {
 
 function addIntern() {
     inquirer.prompt([
-      
+    
       {
         type: "input",
         name: "Name",
@@ -70,9 +70,7 @@ function addIntern() {
       teamArray.push(intern);
       createTeam();
     });
-
   }
-
 
   function addManager() {
     inquirer.prompt ([
@@ -82,19 +80,19 @@ function addIntern() {
         name: "Name",
         message: "Manager's name?"
       },
-  
+
       {
         type: "input",
         name: "Id",
         message: "Manager's employee ID number?"
       },
-  
+
       {
         type: "input",
         name: "Email",
         message: "Manager's email address?"
       },
-  
+
       {
         type: "input",
         name: "OfficeNumber",
@@ -106,7 +104,6 @@ function addIntern() {
       teamArray.push(manager);
       createTeam();
     });
-  
   }
   
   function addEngineer() {
@@ -117,19 +114,16 @@ function addIntern() {
         name: "Name",
         message: "Engineer's name?"
       },
-
       {
         type: "input",
         name: "Id",
         message: "Employee ID number?" 
       },
-
       {
         type: "input",
         name: "Email",
         message: "Engineer's email address?"
       },
-
       {
         type: "input",
         name: "Github",
@@ -137,11 +131,11 @@ function addIntern() {
       }
 
     ]).then(answers => {
+      
       const engineer = new Engineer(answers.Name, answers.Id, answers.Email, answers.Github);
       teamArray.push(engineer);
       createTeam();
     });
-
   }
 
   function log (){
