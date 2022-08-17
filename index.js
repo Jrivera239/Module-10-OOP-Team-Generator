@@ -2,7 +2,7 @@ const fs = require('fs');
 const Employee = require ('./Roles/Employee.js');
 const Manager = require ('./Roles/Manager.js');
 const Intern = require ('./Roles/Intern.js');
-const generateTeam = require('./sources/template.js');
+const generateTeam = require('./sources/generatePage.js');
 const path = require ('path');
 const inquirer = require("inquirer");
 const outputPath = path.join(output_dir, 'index.html');
@@ -30,7 +30,7 @@ function runApp () {
                 addEngineer();
            break;
          default:
-          blank();
+          log();
             }
         })
     }
@@ -143,3 +143,11 @@ function addIntern() {
     });
 
   }
+
+  function log (){
+    console.log ('Team Created :)')
+    fs.writeFileSync (outputPath, generateTeam(teamArray), "UTF-8")
+createTeam();
+}
+runApp();
+  
