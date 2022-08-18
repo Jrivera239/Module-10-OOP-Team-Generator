@@ -5,7 +5,7 @@ const Manager = require ('./Roles/Manager.js');
 const Intern = require ('./Roles/Intern.js');
 const inquirer = require("inquirer");
 const path = require ('path');
-const OUTPUT_DIR = path.resolve(__dirname, "output");
+const OUTPUT_DIR = path.resolve(__dirname);
 const outputPath = path.join(OUTPUT_DIR, "index.html");   
 const generateTeam = require("./sources/generatePage.js")
 

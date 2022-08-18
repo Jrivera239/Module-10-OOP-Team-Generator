@@ -1,8 +1,16 @@
+*
+body{
+background-color: rgba(247, 216, 178, 0.63);
+color: rgb(255, 0, 0);
+font-size: 20px;
+font-weight: 900;
+}
 .card-body {
-    background-color: rgba(75, 54, 54, 0.164);
+    background-color: rgba(100, 12, 134, 0.322);
+    font-size: 23px;
 }
 .employee-card {
-    box-shadow: 6px 6px 6px rgba(128, 128, 128, 0.877);
+    box-shadow: 6px 6px 6px rgba(170, 45, 45, 0.877);
     margin: 1.1rem;
     border: none;
 }
