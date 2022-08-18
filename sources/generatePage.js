@@ -1,4 +1,5 @@
 // team generate
+
 const generateTeam = team => {
 
     // manager html

@@ -9,13 +9,14 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "index.html");   
 const generateTeam = require("./sources/generatePage.js")
 
+
 classArray = [];
 
 function runApp () {
 // member choices
 
 function createClass () {
-  inquirer.createPromptModule([{
+  inquirer.prompt([{
    type:"list",
    message: "What type of member are you adding to the team?",
    name:"addMember",
@@ -32,11 +33,11 @@ function createClass () {
           addEngineer();
    break;
    default:
-    log();
+    html();
       }
   })
 }
-}
+
 
 // Functions/ questioneer
 
@@ -143,17 +144,16 @@ function addEngineer() {
     });
   }
 
-  function log () {
-    console.log ('Team Created :)')
-    fs.writeFileSync (outputPath, generateTeam(classArray), "UTF-8")
+  function html () {
+    console.log ('Well done! Your Team is Created :)')
+    fs.writeFileSync (outputPath, generateTeam (classArray), "UTF-8")
+  
   }
-
 createClass();
-
-
-
+}
 runApp();
   
+
 
 
 
