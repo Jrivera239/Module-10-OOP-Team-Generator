@@ -1,5 +1,5 @@
 const fs = require('fs');
-const Employee = require ('./Roles/Employee.js');
+const Engineer = require ('./Roles/Employee.js');
 const Manager = require ('./Roles/Manager.js');
 const Intern = require ('./Roles/Intern.js');
 const inquirer = require("inquirer");
@@ -22,13 +22,13 @@ function runApp () {
         switch (classInput.addMember) {
         case "Intern":
               addIntern();
-          break;
+         break;
          case "Manager":
                  addManager();
-          break;
+         break;
          case "Engineer":
                 addEngineer();
-           break;
+         break;
          default:
           log();
             }
@@ -114,16 +114,19 @@ function addIntern() {
         name: "Name",
         message: "Engineer's name?"
       },
+
       {
         type: "input",
         name: "Id",
         message: "Employee ID number?" 
       },
+
       {
         type: "input",
         name: "Email",
         message: "Engineer's email address?"
       },
+      
       {
         type: "input",
         name: "Github",
@@ -131,7 +134,7 @@ function addIntern() {
       }
 
     ]).then(answers => {
-      
+
       const engineer = new Engineer(answers.Name, answers.Id, answers.Email, answers.Github);
       teamArray.push(engineer);
       createTeam();
