@@ -3,10 +3,10 @@ const Engineer = require ('./Roles/Employee.js');
 const Manager = require ('./Roles/Manager.js');
 const Intern = require ('./Roles/Intern.js');
 const inquirer = require("inquirer");
-const generateTeam = require('./sources/generatePage.js');
-const OUTPUT_DIR = path.resolve(__dirname, "output");
-const outputPath = path.join(OUTPUT_DIR, "index.html");   
 const path = require ('path');
+const outgoing_dir = path.resolve(__dirname, "output");
+const outputPath = path.join(outgoing_dir, "index.html");   
+const generateTeam = require('./sources/generatePage.js');
 
 classArray = [];
 
@@ -17,7 +17,7 @@ function runApp () {
          type:"list",
          message: "What type of member are you adding to the team?",
          name:"addMember",
-         choices:["Manager", "Intern","Engineer","No more members needed."]
+         choices:["Intern", "Manager","Engineer","No more members needed."]
         }]).then(function (classInput) {
         switch (classInput.addMember) {
         case "Intern":
