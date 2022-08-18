@@ -1,42 +1,44 @@
+
 const fs = require('fs');
-const Engineer = require ('./Roles/Employee.js');
+const Engineer = require ('./Roles/Engineer.js');
 const Manager = require ('./Roles/Manager.js');
 const Intern = require ('./Roles/Intern.js');
 const inquirer = require("inquirer");
 const path = require ('path');
-const outgoing_dir = path.resolve(__dirname, "output");
-const outputPath = path.join(outgoing_dir, "index.html");   
-const generateTeam = require('./sources/generatePage.js');
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "index.html");   
+const generateTeam = require("./sources/generatePage.js")
 
 classArray = [];
 
 function runApp () {
+// member choices
 
-    function createClass () {
-        inquirer.createPromptModule([{
-         type:"list",
-         message: "What type of member are you adding to the team?",
-         name:"addMember",
-         choices:["Intern", "Manager","Engineer","No more members needed."]
-        }]).then(function (classInput) {
-        switch (classInput.addMember) {
-        case "Intern":
-              addIntern();
-         break;
-         case "Manager":
-                 addManager();
-         break;
-         case "Engineer":
-                addEngineer();
-         break;
-         default:
-          log();
-            }
-        })
-    }
+function createClass () {
+  inquirer.createPromptModule([{
+   type:"list",
+   message: "What type of member are you adding to the team?",
+   name:"addMember",
+   choices:["Manager", "Intern","Engineer","No more members needed."]
+  }]).then(function (classInput) {
+  switch (classInput.addMember) {
+  case "Intern":
+        addIntern();
+   break;
+   case "Manager":
+           addManager();
+   break;
+   case "Engineer":
+          addEngineer();
+   break;
+   default:
+    log();
+      }
+  })
+}
 }
 
-// Functions
+// Functions/ questioneer
 
 function addIntern() {
     inquirer.prompt([
@@ -67,8 +69,8 @@ function addIntern() {
 
     ]).then(answers => {
       const intern = new Intern(answers.Name, answers.Id, answers.Email, answers.School);
-      teamArray.push(intern);
-      createTeam();
+      classArray.push(intern);
+      createClass();
     });
   }
 
@@ -101,12 +103,12 @@ function addIntern() {
   
     ]).then(answers => {
       const manager = new Manager(answers.Name, answers.Id, answers.Email, answers.OfficeNumber);
-      teamArray.push(manager);
-      createTeam();
+      classArray.push(manager);
+      createClass();
     });
   }
   
-  function addEngineer() {
+function addEngineer() {
     inquirer.prompt([
       
       {
@@ -136,15 +138,22 @@ function addIntern() {
     ]).then(answers => {
 
       const engineer = new Engineer(answers.Name, answers.Id, answers.Email, answers.Github);
-      teamArray.push(engineer);
-      createTeam();
+      classArray.push(engineer);
+      createClass();
     });
   }
 
-  function log (){
+  function log () {
     console.log ('Team Created :)')
-    fs.writeFileSync (outputPath, generateTeam(teamArray), "UTF-8")
-createTeam();
-}
+    fs.writeFileSync (outputPath, generateTeam(classArray), "UTF-8")
+  }
+
+createClass();
+
+
+
 runApp();
   
+
+
+
