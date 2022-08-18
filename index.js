@@ -81,7 +81,7 @@ function addIntern() {
       {
         type: "input",
         name: "Name",
-        message: "Manager's name?"
+        message: "Office number"
       },
 
       {
@@ -93,13 +93,13 @@ function addIntern() {
       {
         type: "input",
         name: "Email",
-        message: "Manager's email address?"
+        message: "Manager name?"
       },
 
       {
         type: "input",
         name: "OfficeNumber",
-        message: "Manager's office number?"
+        message: "Email?"
       }
   
     ]).then(answers => {

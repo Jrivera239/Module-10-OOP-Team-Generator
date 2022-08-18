@@ -1,20 +1,21 @@
 *
 body{
-background-color: rgba(247, 216, 178, 0.63);
-color: rgb(255, 0, 0);
+background-color: rgba(248, 238, 225, 0.63);
+color: rgba(0, 0, 0, 0.788);
 font-size: 20px;
 font-weight: 900;
 }
 .card-body {
-    background-color: rgba(100, 12, 134, 0.322);
+    background-color: rgba(12, 126, 134, 0.322);
     font-size: 23px;
 }
 .employee-card {
-    box-shadow: 6px 6px 6px rgba(170, 45, 45, 0.877);
-    margin: 1.1rem;
-    border: none;
+    box-shadow: 10px 6px 6px rgba(68, 45, 170, 0.877);
+    margin: 1.9rem;
+  
 }
 .jumbotron {
-    border-radius: 0.1;
+    border-radius: 1;
+    
 }
 
