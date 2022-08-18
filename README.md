@@ -8,6 +8,13 @@ The purpose of this proejct is to create a team with different type of members t
 https://user-images.githubusercontent.com/106676739/185490865-5edf1649-c4cb-4ceb-82e1-580af6730f00.mp4
 
 
+
+## Screenshoot
+![127 0 0 1_5501_index html](https://user-images.githubusercontent.com/106676739/185492937-21fd8828-0f1b-43e7-b952-1a6d13ff5d3d.png)
+
+
+
+
 ## Table of Contents
 
 - [User Story](#user-story)
